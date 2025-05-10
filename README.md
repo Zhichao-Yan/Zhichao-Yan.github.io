@@ -3,35 +3,68 @@
 [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)][gem]&nbsp;
 [![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
 
-When installing the [**Chirpy**][chirpy] theme through [RubyGems.org][gem], Jekyll can only read files in the folders
-`_data`, `_layouts`, `_includes`, `_sass` and `assets`, as well as a small part of options of the `_config.yml` file
-from the theme's gem. If you have ever installed this theme gem, you can use the command
-`bundle info --path jekyll-theme-chirpy` to locate these files.
 
-The Jekyll team claims that this is to leave the ball in the user’s court, but this also results in users not being
-able to enjoy the out-of-the-box experience when using feature-rich themes.
+## Prerequisites
+### What's Gems
+> Gems are code you can include in Ruby projects. Gems package specific functionality. You can share gems across multiple projects or with other people
+### What's Gemfile
+> A Gemfile is a list of gems used by your site. Every Jekyll site has a Gemfile in the main folder.
+### What's bundle
+* bundle is a gem written in Ruby
+* bundle installs all gems in your Gemfile
+* bundle ensures you’re running the same version of Jekyll and its plugins across different environments.
+### bundle command
+1. `bundle install`
+根据项目根目录下的 Gemfile 文件中列出的 gem 依赖，自动下载并安装这些 gem 及其依赖的其他 gem,并且生成一个 Gemfile.lock 文件,确保在不同环境中安装的 gem 版本一致
+2. `bundle exec jekyll serve`
+bundle exec 是一个非常有用的命令，它确保在执行命令时使用的是 Gemfile 中指定的 gem 版本，而不是全局安装的 gem 版本。通过 Gemfile.lock 文件，bundle exec 确保每次执行命令时使用的 gem 版本与项目依赖的版本一致。这有助于避免版本冲突，确保项目的一致性和可复现性。
+e.g. 这里使用bundle exec执行jekyll serve,确保使用的是项目环境要求的Jekyll版本
+3. `bundle info --path jekyll-theme-chirpy`
+定位gem包的路径
+4. `bundle info jekyll-theme-chirpy`
+返回某个gem包的信息
 
-To fully use all the features of **Chirpy**, you need to copy the other critical files from the theme's gem to your
-Jekyll site. The following is a list of targets:
+### What's Jekyll
+* Jekyll is written in Ruby
+* Jekyll is a gem
 
-```shell
-.
-├── _config.yml
-├── _plugins
-├── _tabs
-└── index.html
+### Functionality of Jekyll
+> Jekyll is a static site generator. It takes text written in your favorite markup language and uses layouts to create a static website
+
+## Environment for Chirpy theme
+
+Follow the instructions in the [Jekyll Docs](https://jekyllrb.com/docs/installation/) to complete the installation of the basic environment. [Git](https://git-scm.com/) also needs to be installed.
+
+
+
+## Installation of Chirpy theme
+
+Sign in to GitHub and [**use this template**][use-template] to generate a brand new repository and name it
+`USERNAME.github.io`, where `USERNAME` represents your GitHub username.
+
+Then clone it to your local machine and run:
+```console
+$ bundle
 ```
-
-To save you time, and also in case you lose some files while copying, we extract those files/configurations of the
-latest version of the **Chirpy** theme and the [CD][CD] workflow to here, so that you can start writing in minutes.
 
 ## Usage
 
-Check out the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy/wiki).
+Please see the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy#documentation).
 
-## Contributing
+## preview
+`bundle exec jekyll s`
+or
+`bundle exec jekyll s --incremental`
 
-This repository is automatically updated with new releases from the theme repository. If you encounter any issues or want to contribute to its improvement, please visit the [theme repository][chirpy] to provide feedback.
+## reference
+* [blog](https://chirpy.cotes.page/posts/write-a-new-post/)  
+* [jekyll-compose](https://github.com/jekyll/jekyll-compose)
+
+## command
+1. `bundle exec jekyll post "My New Post"`
+2. `bundle exec jekyll draft "My new draft"`
+3. `bundle exec jekyll publish _drafts/my-new-draft.md`
+4. `bundle exec jekyll unpublish _posts/2014-01-24-my-new-draft.md`
 
 ## License
 
@@ -39,5 +72,6 @@ This work is published under [MIT][mit] License.
 
 [gem]: https://rubygems.org/gems/jekyll-theme-chirpy
 [chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy/
+[use-template]: https://github.com/cotes2020/chirpy-starter/generate
 [CD]: https://en.wikipedia.org/wiki/Continuous_deployment
 [mit]: https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE
